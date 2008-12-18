@@ -1,3 +1,4 @@
+"""Ska file utilities"""
 import os
 import tempfile
 import shutil
@@ -9,11 +10,11 @@ class TempDir(object):
     """Create a temporary directory that gets automatically removed.  Any
     object initialization parameters are passed through to tempfile.mkdtemp.
 
-    >>> import Util.File
-    >>> tmpdir = Util.File.TempDir(dir='.')
-    >>> tmpdir.name
-    './tmpcCH_l-'
-    >>> del tmpdir
+      >>> import Util.File
+      >>> tmpdir = Util.File.TempDir(dir='.')
+      >>> tmpdir.name
+      './tmpcCH_l-'
+      >>> del tmpdir
     """
     def __init__(self, *args, **kwargs):
         self.__dirname = tempfile.mkdtemp(*args, **kwargs)
@@ -57,7 +58,7 @@ def relpath(path, cwd=None):
       >>> relpath('/a/b/c/d/e/hello/there', cwd='/a/b/c/d')
       'e/hello/there'
 
-      # Special case - don't go up to root and back
+      >>> # Special case - don't go up to root and back
       >>> relpath('/x/y/hello/there', cwd='/a/b/c/d')
       '/x/y/hello/there'
     """
@@ -86,8 +87,9 @@ def relpath(path, cwd=None):
 
 
 def make_local_copy(infile, outfile=None, copy=False, linkabs=False, clobber=True):
-    """Make a local copy of or link to C{infile}, gunzipping if necessary.
-
+    """\
+    Make a local copy of or link to C{infile}, gunzipping if necessary.
+    
     @param infile: Input file name
     @param outfile: Output file name (default: C{infile} basename)
     @param copy: Always copy instead of linking when possible
@@ -95,20 +97,20 @@ def make_local_copy(infile, outfile=None, copy=False, linkabs=False, clobber=Tru
     @param clobber: Clobber existing file
     @return: Output file name
 
-    >>> import Util.File
-    >>> import random, tempfile
-    >>> a = '\n'.join([str(random.random()) for i in range(100)])
-    >>> tmpfile = tempfile.mkstemp()[1]
-    >>> open(tmpfile, 'w').write(a)
-    >>> stat = subprocess.Popen(['gzip', '--stdout', tmpfile], stdout=open(tmpfile+'.gz','w')).communicate()
-    >>> tmplocal = Util.File.make_local_copy(tmpfile, clobber=True)
-    >>> a == open(tmplocal).read()
-    True
-    >>> tmplocal = Util.File.make_local_copy(tmpfile+'.gz', clobber=True)
-    >>> a == open(tmplocal).read()
-    True
-    >>> os.unlink(tmpfile)
-    >>> os.unlink(tmplocal)
+      >>> import Util.File
+      >>> import random, tempfile
+      >>> a = os.linesep.join([str(random.random()) for i in range(100)])
+      >>> tmpfile = tempfile.mkstemp()[1]
+      >>> open(tmpfile, 'w').write(a)
+      >>> stat = subprocess.Popen(['gzip', '--stdout', tmpfile], stdout=open(tmpfile+'.gz','w')).communicate()
+      >>> tmplocal = Util.File.make_local_copy(tmpfile, clobber=True)
+      >>> a == open(tmplocal).read()
+      True
+      >>> tmplocal = Util.File.make_local_copy(tmpfile+'.gz', clobber=True)
+      >>> a == open(tmplocal).read()
+      True
+      >>> os.unlink(tmpfile)
+      >>> os.unlink(tmplocal)
     """
     
     if not os.path.exists(infile):
