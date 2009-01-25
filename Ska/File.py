@@ -8,13 +8,15 @@ import glob
 
 class TempDir(object):
     """Create a temporary directory that gets automatically removed.  Any
-    object initialization parameters are passed through to tempfile.mkdtemp.
+    object initialization parameters are passed through to `tempfile.mkdtemp`_.
 
-      >>> import Util.File
-      >>> tmpdir = Util.File.TempDir(dir='.')
+      >>> import Ska.File
+      >>> tmpdir = Ska.File.TempDir(dir='.')
       >>> tmpdir.name
       './tmpcCH_l-'
       >>> del tmpdir
+
+    .. _tempfile.mkdtemp: http://docs.python.org/library/tempfile.html#tempfile.mkdtemp 
     """
     def __init__(self, *args, **kwargs):
         self.__dirname = tempfile.mkdtemp(*args, **kwargs)
@@ -25,14 +27,14 @@ class TempDir(object):
         shutil.rmtree(self.__dirname)
 
 def get_globfiles(fileglob, minfiles=1, maxfiles=1):
-    """\
-    Get file(s) matching C{fileglob}.  If the number of matching
+    """
+    Get file(s) matching ``fileglob``.  If the number of matching
     files is less than minfiles or more than maxfiles then an
     exception is raised.
 
-    @param fileglob: Input file glob
-    @param minfiles: Minimum matching files (None => no minimum)
-    @param maxfiles: Maximum matching files (None => no maximum)
+    :param fileglob: Input file glob
+    :param minfiles: Minimum matching files (None => no minimum)
+    :param maxfiles: Maximum matching files (None => no maximum)
     """
     files = glob.glob(fileglob)
     nfiles = len(files)
@@ -46,13 +48,9 @@ def get_globfiles(fileglob, minfiles=1, maxfiles=1):
 def relpath(path, cwd=None):
     """ Find relative path from current directory to path.
 
-    @param path: Destination path
-    @param cwd: Current directory (default: os.getcwd() )
-    @return: Relative path
-
-    Usage:
+    Example usage:
     
-      >>> from Util.File import relpath
+      >>> from Ska.File import relpath
       >>> relpath('/a/b/hello/there', cwd='/a/b/c/d')
       '../../hello/there'
       >>> relpath('/a/b/c/d/e/hello/there', cwd='/a/b/c/d')
@@ -61,6 +59,11 @@ def relpath(path, cwd=None):
       >>> # Special case - don't go up to root and back
       >>> relpath('/x/y/hello/there', cwd='/a/b/c/d')
       '/x/y/hello/there'
+
+    :param path: Destination path
+    :param cwd: Current directory (default: os.getcwd() )
+    :rtype: Relative path
+
     """
     if cwd is None:
         cwd = os.getcwd()
@@ -87,26 +90,26 @@ def relpath(path, cwd=None):
 
 
 def make_local_copy(infile, outfile=None, copy=False, linkabs=False, clobber=True):
-    """\
-    Make a local copy of or link to C{infile}, gunzipping if necessary.
+    """
+    Make a local copy of or link to ``infile``, gunzipping if necessary.
     
-    @param infile: Input file name
-    @param outfile: Output file name (default: C{infile} basename)
-    @param copy: Always copy instead of linking when possible
-    @param linkabs: Create link to absolute path instead of relative
-    @param clobber: Clobber existing file
-    @return: Output file name
+    :param infile: Input file name
+    :param outfile: Output file name (default: ``infile`` basename)
+    :param copy: Always copy instead of linking when possible
+    :param linkabs: Create link to absolute path instead of relative
+    :param clobber: Clobber existing file
+    :rtype: Output file name
 
-      >>> import Util.File
+      >>> import Ska.File
       >>> import random, tempfile
       >>> a = os.linesep.join([str(random.random()) for i in range(100)])
       >>> tmpfile = tempfile.mkstemp()[1]
       >>> open(tmpfile, 'w').write(a)
       >>> stat = subprocess.Popen(['gzip', '--stdout', tmpfile], stdout=open(tmpfile+'.gz','w')).communicate()
-      >>> tmplocal = Util.File.make_local_copy(tmpfile, clobber=True)
+      >>> tmplocal = Ska.File.make_local_copy(tmpfile, clobber=True)
       >>> a == open(tmplocal).read()
       True
-      >>> tmplocal = Util.File.make_local_copy(tmpfile+'.gz', clobber=True)
+      >>> tmplocal = Ska.File.make_local_copy(tmpfile+'.gz', clobber=True)
       >>> a == open(tmplocal).read()
       True
       >>> os.unlink(tmpfile)
