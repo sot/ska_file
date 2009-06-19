@@ -84,10 +84,9 @@ def relpath(path, cwd=None):
         destpaths.pop(0)
 
     # start with enough '..'s to get to top of common path then get
-    # the rest of the destpaths
+    # the rest of the destpaths.  Return '' if the list ends up being empty.
     relpaths = [os.pardir] * len(currpaths) + destpaths
-    return os.path.join(*relpaths)
-
+    return os.path.join(*relpaths) if relpaths else ''
 
 def make_local_copy(infile, outfile=None, copy=False, linkabs=False, clobber=True):
     """
