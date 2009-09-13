@@ -5,6 +5,27 @@ import shutil
 import re
 import subprocess
 import glob
+import contextlib
+
+@contextlib.contextmanager
+def chdir(dirname=None):
+    """
+    Context manager to run block within `dirname` directory.  The current
+    directory is restored even if the block raises an exception.
+
+     >>> with chdir(dirname):
+     >>>     print "Directory within chdir() context:", os.getcwd()
+     >>> print "Directory after chdir() context:", os.getcwd()
+
+    :param dirname: Directory name
+    """
+    curdir = os.getcwd()
+    try:
+        if dirname is not None:
+            os.chdir(dirname)
+        yield
+    finally:
+        os.chdir(curdir)
 
 class TempDir(object):
     """Create a temporary directory that gets automatically removed.  Any
