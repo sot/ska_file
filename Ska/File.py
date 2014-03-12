@@ -163,4 +163,84 @@ def make_local_copy(infile, outfile=None, copy=False, linkabs=False, clobber=Tru
         os.symlink(infile_link, outfile)
 
     return outfile
-    
+
+
+def prune_dirs(dirs, regex):
+    """
+    Prune directories (in-place) that do not match ``regex``.
+    """
+    prunes = [x for x in dirs if not re.match(regex, x)]
+    for prune in prunes:
+        dirs.remove(prune)
+
+# get_mp_files is slow, so cache results (mostly for testing)
+get_mp_files_cache = {}
+
+
+def get_mp_files(file_basename_regex, subdir=None, mpdir='', mproot='/data/mpcrit1/mplogs'):
+    """
+    Get all files within the specified SOT MP directory ``mpdir``
+    matching the requested regex.  The optional 'subdir' specifies if the
+    file is found within a fixed name subdirectory (such as ``mps/or``).
+
+    Returns a list of dicts [{name, date},..]
+    """
+    from Chandra.Time import DateTime
+    import logging
+    logger = logging.getLogger('Ska.File')
+
+    rootdir = os.path.join(mproot, mpdir)
+    try:
+        return get_mp_files_cache[rootdir + str(subdir) + file_basename_regex]
+    except KeyError:
+        pass
+
+    logger.info('Looking for files in {}'.format(rootdir))
+
+    subdirs = [re.compile(r'\d{4}$'),
+               re.compile(r'[A-Z]{3}\d{4}$'),
+               re.compile(r'ofls[a-z]$')]
+    if subdir is not None:
+        subdirs.extend(subdir.split('/'))
+
+    startdepth = len(mproot.split('/')) - 1
+    mpfiles = []
+    for root, dirs, files in os.walk(rootdir):
+        logger.debug('get_mp_files: root={}'.format(root))
+        root = root.rstrip('/')
+        depth = len(root.split('/')) - 1
+        if depth < (startdepth + len(subdirs)):
+            for idx, reg in enumerate(subdirs):
+                if depth == (startdepth + idx):
+                    prune_dirs(dirs, reg)
+                    break
+        else:
+            mps = [x for x in files if re.match(file_basename_regex, x)]
+            if len(mps) == 0:
+                logger.info('NO file found in {}'.format(root))
+            else:
+                logger.info('Located file {}'.format(os.path.join(root, mps[0])))
+                mpfiles.append(os.path.join(root, mps[0]))
+            while dirs:
+                dirs.pop()
+
+    files = []
+    for mpfile in mpfiles:
+        daymatch = re.search(r'([A-Z]{3})(\d{2})(\d{2})/ofls(\w)', mpfile)
+        if not daymatch:
+            continue
+        oflsv = daymatch.group(4)
+        mon = daymatch.group(1)
+        dd = daymatch.group(2)
+        yy = int(daymatch.group(3))
+        yyyy = 1900 + yy if yy > 95 else 2000 + yy
+        caldate = '{}{}{} at 12:00:00.000'.format(yyyy, mon, dd)
+        files.append((mpfile,
+                      DateTime(caldate).date[:8] + oflsv,
+                      DateTime(caldate).date))
+
+    files = sorted(files, key=lambda x: x[1])
+    out = [{'name': x[0], 'date': x[2]} for x in files]
+    # store the results in the cache both by directory / subdir / regex
+    get_mp_files_cache[rootdir + mpdir + str(subdir) + file_basename_regex] = out
+    return out
