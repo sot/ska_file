@@ -237,10 +237,12 @@ def get_mp_files(file_basename_regex, subdir=None, mpdir='', mproot='/data/mpcri
         caldate = '{}{}{} at 12:00:00.000'.format(yyyy, mon, dd)
         files.append((mpfile,
                       DateTime(caldate).date[:8] + oflsv,
-                      DateTime(caldate).date))
+                      DateTime(caldate).date,
+                      os.stat(mpfile).st_mtime,
+                      ))
 
     files = sorted(files, key=lambda x: x[1])
-    out = [{'name': x[0], 'date': x[2]} for x in files]
+    out = [{'name': x[0], 'date': x[2], 'unix_mtime': x[3]} for x in files]
     # store the results in the cache both by directory / subdir / regex
     get_mp_files_cache[rootdir + mpdir + str(subdir) + file_basename_regex] = out
     return out
