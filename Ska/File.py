@@ -164,3 +164,34 @@ def make_local_copy(infile, outfile=None, copy=False, linkabs=False, clobber=Tru
 
     return outfile
     
+
+def _reversed_blocks(file, blocksize=4096):
+    "Generate blocks of file's contents in reverse order."
+    file.seek(0, os.SEEK_END)
+    here = file.tell()
+    while 0 < here:
+        delta = min(blocksize, here)
+        here -= delta
+        file.seek(here, os.SEEK_SET)
+        yield file.read(delta)
+
+
+def reversed_lines(filename):
+    """
+    Generate the lines of ``filename`` in reverse order.
+
+    Adapted from: http://stackoverflow.com/questions/260273/most-efficient-way-to-search-the-last-x-lines-of-a-file-in-python/
+
+    :param filename: file name
+    :returns: generator of reversed file lines
+    """
+    with open(filename, 'r') as file:
+        part = ''
+        for block in _reversed_blocks(file):
+            for c in reversed(block):
+                if c == '\n' and part:
+                    yield part[::-1]
+                    part = ''
+                part += c
+        if part:
+            yield part[::-1]
