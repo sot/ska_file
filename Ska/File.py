@@ -7,6 +7,9 @@ import subprocess
 import glob
 import contextlib
 
+__version__ = '0.4.1'
+
+
 @contextlib.contextmanager
 def chdir(dirname=None):
     """
