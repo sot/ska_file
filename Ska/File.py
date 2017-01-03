@@ -7,7 +7,7 @@ import subprocess
 import glob
 import contextlib
 
-__version__ = '0.4.1'
+__version__ = '3.4.1'
 
 
 @contextlib.contextmanager
