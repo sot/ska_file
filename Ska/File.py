@@ -8,7 +8,9 @@ import subprocess
 import glob
 import contextlib
 
-__version__ = '3.4.1'
+import ska_helpers
+
+__version__ = ska_helpers.get_version('Ska.File')
 
 
 @contextlib.contextmanager
