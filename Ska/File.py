@@ -10,7 +10,7 @@ import contextlib
 
 import ska_helpers
 
-__version__ = ska_helpers.get_version('Ska.File')
+__version__ = ska_helpers.get_version(__package__)
 
 
 @contextlib.contextmanager
