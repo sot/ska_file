@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Ska.File’s documentation! &#8212; Ska.File 0.4 documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-astropy.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/sidebar.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'/>
+
+  </head><body>
+<div class="topbar">
+  <a class="brand" title="Documentation Home" href="#"><span id="logotext1">Ska!</span><span id="logotext2">Ska</span><span id="logotext3">.File</span></a>
+  <ul>
+    
+    <li><a class="home" title="Homepage" href="">
+        <span id="logotext1"></span><span id="logotext2"></span>
+    </a></li>
+    <li><a title="General Index" href="genindex.html">Index</a></li>
+    <li><a title="Module Index" href="py-modindex.html">Modules</a></li>
+    <li>
+      
+      
+<form action="search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+      
+    </li>
+  </ul>
+</div>
+
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+      <li>
+	<a href="#">Ska.File 0.4 documentation</a>
+	 &#187;
+      </li>
+      
+       
+    </ul>
+</div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-ska-file-s-documentation">
+<h1>Welcome to Ska.File’s documentation!<a class="headerlink" href="#welcome-to-ska-file-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-Ska.File">
+<span id="api-docs"></span><h2>API docs<a class="headerlink" href="#module-Ska.File" title="Permalink to this headline">¶</a></h2>
+<p>Ska file utilities</p>
+<dl class="py class">
+<dt id="Ska.File.TempDir">
+<em class="property">class </em><code class="sig-prename descclassname">Ska.File.</code><code class="sig-name descname">TempDir</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Ska/File.html#TempDir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Ska.File.TempDir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a temporary directory that gets automatically removed.  Any
+object initialization parameters are passed through to <a class="reference external" href="http://docs.python.org/library/tempfile.html#tempfile.mkdtemp">tempfile.mkdtemp</a>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">Ska.File</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tmpdir</span> <span class="o">=</span> <span class="n">Ska</span><span class="o">.</span><span class="n">File</span><span class="o">.</span><span class="n">TempDir</span><span class="p">(</span><span class="nb">dir</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tmpdir</span><span class="o">.</span><span class="n">name</span>
+<span class="go">&#39;./tmpcCH_l-&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">tmpdir</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="Ska.File.chdir">
+<code class="sig-prename descclassname">Ska.File.</code><code class="sig-name descname">chdir</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dirname</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Ska/File.html#chdir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Ska.File.chdir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Context manager to run block within <cite>dirname</cite> directory.  The current
+directory is restored even if the block raises an exception.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">chdir</span><span class="p">(</span><span class="n">dirname</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span> <span class="s2">&quot;Directory within chdir() context:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="s2">&quot;Directory after chdir() context:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dirname</strong> – Directory name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="Ska.File.get_globfiles">
+<code class="sig-prename descclassname">Ska.File.</code><code class="sig-name descname">get_globfiles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fileglob</span></em>, <em class="sig-param"><span class="n">minfiles</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">maxfiles</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Ska/File.html#get_globfiles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Ska.File.get_globfiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get file(s) matching <code class="docutils literal notranslate"><span class="pre">fileglob</span></code>.  If the number of matching
+files is less than minfiles or more than maxfiles then an
+exception is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fileglob</strong> – Input file glob</p></li>
+<li><p><strong>minfiles</strong> – Minimum matching files (None =&gt; no minimum)</p></li>
+<li><p><strong>maxfiles</strong> – Maximum matching files (None =&gt; no maximum)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="Ska.File.make_local_copy">
+<code class="sig-prename descclassname">Ska.File.</code><code class="sig-name descname">make_local_copy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">infile</span></em>, <em class="sig-param"><span class="n">outfile</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">copy</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">linkabs</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">clobber</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Ska/File.html#make_local_copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Ska.File.make_local_copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a local copy of or link to <code class="docutils literal notranslate"><span class="pre">infile</span></code>, gunzipping if necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>infile</strong> – Input file name</p></li>
+<li><p><strong>outfile</strong> – Output file name (default: <code class="docutils literal notranslate"><span class="pre">infile</span></code> basename)</p></li>
+<li><p><strong>copy</strong> – Always copy instead of linking when possible</p></li>
+<li><p><strong>linkabs</strong> – Create link to absolute path instead of relative</p></li>
+<li><p><strong>clobber</strong> – Clobber existing file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><p>Output file name</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">Ska.File</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">random</span><span class="o">,</span> <span class="nn">tempfile</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tmpfile</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkstemp</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">open</span><span class="p">(</span><span class="n">tmpfile</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stat</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;gzip&#39;</span><span class="p">,</span> <span class="s1">&#39;--stdout&#39;</span><span class="p">,</span> <span class="n">tmpfile</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">tmpfile</span><span class="o">+</span><span class="s1">&#39;.gz&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tmplocal</span> <span class="o">=</span> <span class="n">Ska</span><span class="o">.</span><span class="n">File</span><span class="o">.</span><span class="n">make_local_copy</span><span class="p">(</span><span class="n">tmpfile</span><span class="p">,</span> <span class="n">clobber</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">==</span> <span class="nb">open</span><span class="p">(</span><span class="n">tmplocal</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tmplocal</span> <span class="o">=</span> <span class="n">Ska</span><span class="o">.</span><span class="n">File</span><span class="o">.</span><span class="n">make_local_copy</span><span class="p">(</span><span class="n">tmpfile</span><span class="o">+</span><span class="s1">&#39;.gz&#39;</span><span class="p">,</span> <span class="n">clobber</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">==</span> <span class="nb">open</span><span class="p">(</span><span class="n">tmplocal</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">tmpfile</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">tmplocal</span><span class="p">)</span>
+</pre></div>
+</div>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="Ska.File.relpath">
+<code class="sig-prename descclassname">Ska.File.</code><code class="sig-name descname">relpath</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">cwd</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Ska/File.html#relpath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Ska.File.relpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find relative path from current directory to path.</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">Ska.File</span> <span class="kn">import</span> <span class="n">relpath</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">relpath</span><span class="p">(</span><span class="s1">&#39;/a/b/hello/there&#39;</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="s1">&#39;/a/b/c/d&#39;</span><span class="p">)</span>
+<span class="go">&#39;../../hello/there&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">relpath</span><span class="p">(</span><span class="s1">&#39;/a/b/c/d/e/hello/there&#39;</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="s1">&#39;/a/b/c/d&#39;</span><span class="p">)</span>
+<span class="go">&#39;e/hello/there&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Special case - don&#39;t go up to root and back</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">relpath</span><span class="p">(</span><span class="s1">&#39;/x/y/hello/there&#39;</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="s1">&#39;/a/b/c/d&#39;</span><span class="p">)</span>
+<span class="go">&#39;/x/y/hello/there&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – Destination path</p></li>
+<li><p><strong>cwd</strong> – Current directory (default: os.getcwd() )</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Relative path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="Ska.File.reversed_lines">
+<code class="sig-prename descclassname">Ska.File.</code><code class="sig-name descname">reversed_lines</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Ska/File.html#reversed_lines"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Ska.File.reversed_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the lines of <code class="docutils literal notranslate"><span class="pre">filename</span></code> in reverse order.</p>
+<p>Adapted from: <a class="reference external" href="http://stackoverflow.com/questions/260273/most-efficient-way-to-search-the-last-x-lines-of-a-file-in-python/">http://stackoverflow.com/questions/260273/most-efficient-way-to-search-the-last-x-lines-of-a-file-in-python/</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> – file name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>generator of reversed file lines</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
+<ul>
+<li><a class="reference internal" href="#">Welcome to Ska.File’s documentation!</a><ul>
+<li><a class="reference internal" href="#module-Ska.File">API docs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<form action="search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<footer class="footer">
+  <p class="pull-right">
+    <a href="_sources/index.rst.txt"
+       rel="nofollow">Page Source</a> &nbsp;
+    <a href="#">Back to Top</a></p>
+  <p>
+    &copy; Copyright 2015, Tom Aldcroft.<br/>
+    Created using <a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a> 3.1.2. &nbsp;
+  </p>
+</footer>
+  </body>
+</html>
