@@ -114,9 +114,9 @@ todo_include_todos = False
 # a list of builtin themes.
 html_theme = 'bootstrap-ska'
 html_theme_options = {
-logotext1: 'Ska!' ,
-logotext2: 'Ska',
-logotext3: '.File',
+    'logotext1': 'Ska!' ,
+    'logotext2': 'Ska',
+    'logotext3': '.File',
 }
 
 # Theme options are theme-specific and customize the look and feel of a theme
