@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Ska.File's documentation!
-====================================
+Ska.File
+========
 
 .. toctree::
    :maxdepth: 2
@@ -14,12 +14,4 @@ API docs
 
 .. automodule:: Ska.File
    :members:
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
