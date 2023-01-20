@@ -8,10 +8,6 @@ import subprocess
 import glob
 import contextlib
 
-import ska_helpers
-
-__version__ = ska_helpers.get_version(__name__)
-
 
 @contextlib.contextmanager
 def chdir(dirname=None):
