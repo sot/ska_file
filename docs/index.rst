@@ -12,6 +12,6 @@ ska_file
 API docs
 --------
 
-.. automodule:: ska_file
+.. automodule:: ska_file.File
    :members:
 
