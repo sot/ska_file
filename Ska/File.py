@@ -37,18 +37,18 @@ class TempDir(object):
     """Create a temporary directory that gets automatically removed.  Any
     object initialization parameters are passed through to `tempfile.mkdtemp`_.
 
-      >>> import Ska.File
-      >>> tmpdir = Ska.File.TempDir(dir='.')
+      >>> import ska_file
+      >>> tmpdir = ska_file.TempDir(dir='.')
       >>> tmpdir.name
       './tmpcCH_l-'
       >>> del tmpdir
 
-    .. _tempfile.mkdtemp: http://docs.python.org/library/tempfile.html#tempfile.mkdtemp 
+    .. _tempfile.mkdtemp: http://docs.python.org/library/tempfile.html#tempfile.mkdtemp
     """
     def __init__(self, *args, **kwargs):
         self.__dirname = tempfile.mkdtemp(*args, **kwargs)
         self.name = self.__dirname      # "public" attribute
-        
+
     def __del__(self):
         """Remove the temp directory when the object is destroyed."""
         shutil.rmtree(self.__dirname)
@@ -71,13 +71,13 @@ def get_globfiles(fileglob, minfiles=1, maxfiles=1):
         raise ValueError('No more than %d file(s) required for %s but %d found' % (maxfiles, fileglob, nfiles))
 
     return files
-    
+
 def relpath(path, cwd=None):
     """ Find relative path from current directory to path.
 
     Example usage:
-    
-      >>> from Ska.File import relpath
+
+      >>> from ska_file import relpath
       >>> relpath('/a/b/hello/there', cwd='/a/b/c/d')
       '../../hello/there'
       >>> relpath('/a/b/c/d/e/hello/there', cwd='/a/b/c/d')
@@ -118,7 +118,7 @@ def relpath(path, cwd=None):
 def make_local_copy(infile, outfile=None, copy=False, linkabs=False, clobber=True):
     """
     Make a local copy of or link to ``infile``, gunzipping if necessary.
-    
+
     :param infile: Input file name
     :param outfile: Output file name (default: ``infile`` basename)
     :param copy: Always copy instead of linking when possible
@@ -126,22 +126,22 @@ def make_local_copy(infile, outfile=None, copy=False, linkabs=False, clobber=Tru
     :param clobber: Clobber existing file
     :rtype: Output file name
 
-      >>> import Ska.File
+      >>> import ska_file
       >>> import random, tempfile
       >>> a = os.linesep.join([str(random.random()) for i in range(100)])
       >>> tmpfile = tempfile.mkstemp()[1]
       >>> open(tmpfile, 'w').write(a)
       >>> stat = subprocess.Popen(['gzip', '--stdout', tmpfile], stdout=open(tmpfile+'.gz','w')).communicate()
-      >>> tmplocal = Ska.File.make_local_copy(tmpfile, clobber=True)
+      >>> tmplocal = ska_file.make_local_copy(tmpfile, clobber=True)
       >>> a == open(tmplocal).read()
       True
-      >>> tmplocal = Ska.File.make_local_copy(tmpfile+'.gz', clobber=True)
+      >>> tmplocal = ska_file.make_local_copy(tmpfile+'.gz', clobber=True)
       >>> a == open(tmplocal).read()
       True
       >>> os.unlink(tmpfile)
       >>> os.unlink(tmplocal)
     """
-    
+
     if not os.path.exists(infile):
         raise IOError('Input file %s not found' % infile)
 
@@ -169,7 +169,7 @@ def make_local_copy(infile, outfile=None, copy=False, linkabs=False, clobber=Tru
         os.symlink(infile_link, outfile)
 
     return outfile
-    
+
 
 def _reversed_blocks(file, blocksize=4096):
     "Generate blocks of file's contents in reverse order."

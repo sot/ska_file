@@ -1,9 +1,9 @@
-.. Ska.File documentation master file, created by
+.. ska_file documentation master file, created by
    sphinx-quickstart on Sat Nov 14 08:32:37 2015.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Ska.File
+ska_file
 ========
 
 .. toctree::
@@ -12,6 +12,6 @@ Ska.File
 API docs
 --------
 
-.. automodule:: Ska.File
+.. automodule:: ska_file
    :members:
 

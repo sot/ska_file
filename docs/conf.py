@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Ska.File documentation build configuration file, created by
+# ska_file documentation build configuration file, created by
 # sphinx-quickstart on Sat Nov 14 08:32:37 2015.
 #
 # This file is execfile()d with the current directory set to its
@@ -50,7 +50,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Ska.File'
+project = u'ska_file'
 copyright = u'2015, Tom Aldcroft'
 author = u'Tom Aldcroft'
 
@@ -234,7 +234,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'SkaFile.tex', u'Ska.File Documentation',
+  (master_doc, 'SkaFile.tex', u'ska_file Documentation',
    u'Tom Aldcroft', 'manual'),
 ]
 
@@ -264,7 +264,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'skafile', u'Ska.File Documentation',
+    (master_doc, 'skafile', u'ska_file Documentation',
      [author], 1)
 ]
 
@@ -278,7 +278,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'SkaFile', u'Ska.File Documentation',
+  (master_doc, 'SkaFile', u'ska_file Documentation',
    author, 'SkaFile', 'One line description of project.',
    'Miscellaneous'),
 ]
