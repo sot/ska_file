@@ -115,8 +115,8 @@ todo_include_todos = False
 html_theme = 'bootstrap-ska'
 html_theme_options = {
     'logotext1': 'Ska!' ,
-    'logotext2': 'Ska',
-    'logotext3': '.File',
+    'logotext2': 'ska_file',
+    'logotext3': '',
     'homepage_url': 'https://cxc.cfa.harvard.edu/mta/ASPECT/tool_doc',
     'homepage_text': 'ska',
     'homepage_text_2': 'tools'
