@@ -4,16 +4,16 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ska.File &#8212; Ska.File 0.4 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-astropy.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>ska_file &#8212; ska_file 0.4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bootstrap-astropy.css" />
     
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/sidebar.js"></script>
     <script type="text/javascript" src="_static/copybutton.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -22,7 +22,7 @@
 
   </head><body>
 <div class="topbar">
-  <a class="brand" title="Documentation Home" href="#"><span id="logotext1">Ska!</span><span id="logotext2">Ska</span><span id="logotext3">.File</span></a>
+  <a class="brand" title="Documentation Home" href="#"><span id="logotext1">Ska!</span><span id="logotext2">ska_file</span><span id="logotext3"></span></a>
   <ul>
     
     <li><a class="home" title="Homepage" href="https://cxc.cfa.harvard.edu/mta/ASPECT/tool_doc">
@@ -47,7 +47,7 @@
     <h3>Navigation</h3>
     <ul>
       <li>
-	<a href="#">Ska.File 0.4 documentation</a>
+	<a href="#">ska_file 0.4 documentation</a>
 	 &#187;
       </li>
       
@@ -61,20 +61,20 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="ska-file">
-<h1>Ska.File<a class="headerlink" href="#ska-file" title="Permalink to this headline">¶</a></h1>
+  <section id="ska-file">
+<h1>ska_file<a class="headerlink" href="#ska-file" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="section" id="module-Ska.File">
-<span id="api-docs"></span><h2>API docs<a class="headerlink" href="#module-Ska.File" title="Permalink to this headline">¶</a></h2>
+<section id="module-ska_file.File">
+<span id="api-docs"></span><h2>API docs<a class="headerlink" href="#module-ska_file.File" title="Permalink to this headline">¶</a></h2>
 <p>Ska file utilities</p>
 <dl class="py class">
-<dt id="Ska.File.TempDir">
-<em class="property">class </em><code class="sig-prename descclassname">Ska.File.</code><code class="sig-name descname">TempDir</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Ska/File.html#TempDir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Ska.File.TempDir" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ska_file.File.TempDir">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">ska_file.File.</span></span><span class="sig-name descname"><span class="pre">TempDir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ska_file/File.html#TempDir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ska_file.File.TempDir" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a temporary directory that gets automatically removed.  Any
 object initialization parameters are passed through to <a class="reference external" href="http://docs.python.org/library/tempfile.html#tempfile.mkdtemp">tempfile.mkdtemp</a>.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">Ska.File</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">tmpdir</span> <span class="o">=</span> <span class="n">Ska</span><span class="o">.</span><span class="n">File</span><span class="o">.</span><span class="n">TempDir</span><span class="p">(</span><span class="nb">dir</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ska_file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tmpdir</span> <span class="o">=</span> <span class="n">ska_file</span><span class="o">.</span><span class="n">TempDir</span><span class="p">(</span><span class="nb">dir</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tmpdir</span><span class="o">.</span><span class="n">name</span>
 <span class="go">&#39;./tmpcCH_l-&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">tmpdir</span>
@@ -83,8 +83,8 @@ object initialization parameters are passed through to <a class="reference exter
 </dd></dl>
 
 <dl class="py function">
-<dt id="Ska.File.chdir">
-<code class="sig-prename descclassname">Ska.File.</code><code class="sig-name descname">chdir</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dirname</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Ska/File.html#chdir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Ska.File.chdir" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ska_file.File.chdir">
+<span class="sig-prename descclassname"><span class="pre">ska_file.File.</span></span><span class="sig-name descname"><span class="pre">chdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dirname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ska_file/File.html#chdir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ska_file.File.chdir" title="Permalink to this definition">¶</a></dt>
 <dd><p>Context manager to run block within <cite>dirname</cite> directory.  The current
 directory is restored even if the block raises an exception.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">chdir</span><span class="p">(</span><span class="n">dirname</span><span class="p">):</span>
@@ -100,8 +100,8 @@ directory is restored even if the block raises an exception.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="Ska.File.get_globfiles">
-<code class="sig-prename descclassname">Ska.File.</code><code class="sig-name descname">get_globfiles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fileglob</span></em>, <em class="sig-param"><span class="n">minfiles</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">maxfiles</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Ska/File.html#get_globfiles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Ska.File.get_globfiles" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ska_file.File.get_globfiles">
+<span class="sig-prename descclassname"><span class="pre">ska_file.File.</span></span><span class="sig-name descname"><span class="pre">get_globfiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileglob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minfiles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxfiles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ska_file/File.html#get_globfiles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ska_file.File.get_globfiles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get file(s) matching <code class="docutils literal notranslate"><span class="pre">fileglob</span></code>.  If the number of matching
 files is less than minfiles or more than maxfiles then an
 exception is raised.</p>
@@ -117,8 +117,8 @@ exception is raised.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="Ska.File.make_local_copy">
-<code class="sig-prename descclassname">Ska.File.</code><code class="sig-name descname">make_local_copy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">infile</span></em>, <em class="sig-param"><span class="n">outfile</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">copy</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">linkabs</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">clobber</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Ska/File.html#make_local_copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Ska.File.make_local_copy" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ska_file.File.make_local_copy">
+<span class="sig-prename descclassname"><span class="pre">ska_file.File.</span></span><span class="sig-name descname"><span class="pre">make_local_copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linkabs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clobber</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ska_file/File.html#make_local_copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ska_file.File.make_local_copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a local copy of or link to <code class="docutils literal notranslate"><span class="pre">infile</span></code>, gunzipping if necessary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -132,16 +132,16 @@ exception is raised.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><p>Output file name</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">Ska.File</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ska_file</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">random</span><span class="o">,</span> <span class="nn">tempfile</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tmpfile</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkstemp</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">open</span><span class="p">(</span><span class="n">tmpfile</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stat</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;gzip&#39;</span><span class="p">,</span> <span class="s1">&#39;--stdout&#39;</span><span class="p">,</span> <span class="n">tmpfile</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">tmpfile</span><span class="o">+</span><span class="s1">&#39;.gz&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">tmplocal</span> <span class="o">=</span> <span class="n">Ska</span><span class="o">.</span><span class="n">File</span><span class="o">.</span><span class="n">make_local_copy</span><span class="p">(</span><span class="n">tmpfile</span><span class="p">,</span> <span class="n">clobber</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tmplocal</span> <span class="o">=</span> <span class="n">ska_file</span><span class="o">.</span><span class="n">make_local_copy</span><span class="p">(</span><span class="n">tmpfile</span><span class="p">,</span> <span class="n">clobber</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">==</span> <span class="nb">open</span><span class="p">(</span><span class="n">tmplocal</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">tmplocal</span> <span class="o">=</span> <span class="n">Ska</span><span class="o">.</span><span class="n">File</span><span class="o">.</span><span class="n">make_local_copy</span><span class="p">(</span><span class="n">tmpfile</span><span class="o">+</span><span class="s1">&#39;.gz&#39;</span><span class="p">,</span> <span class="n">clobber</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tmplocal</span> <span class="o">=</span> <span class="n">ska_file</span><span class="o">.</span><span class="n">make_local_copy</span><span class="p">(</span><span class="n">tmpfile</span><span class="o">+</span><span class="s1">&#39;.gz&#39;</span><span class="p">,</span> <span class="n">clobber</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">==</span> <span class="nb">open</span><span class="p">(</span><span class="n">tmplocal</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">tmpfile</span><span class="p">)</span>
@@ -154,11 +154,11 @@ exception is raised.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="Ska.File.relpath">
-<code class="sig-prename descclassname">Ska.File.</code><code class="sig-name descname">relpath</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">cwd</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Ska/File.html#relpath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Ska.File.relpath" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ska_file.File.relpath">
+<span class="sig-prename descclassname"><span class="pre">ska_file.File.</span></span><span class="sig-name descname"><span class="pre">relpath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ska_file/File.html#relpath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ska_file.File.relpath" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find relative path from current directory to path.</p>
 <p>Example usage:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">Ska.File</span> <span class="kn">import</span> <span class="n">relpath</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ska_file</span> <span class="kn">import</span> <span class="n">relpath</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">relpath</span><span class="p">(</span><span class="s1">&#39;/a/b/hello/there&#39;</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="s1">&#39;/a/b/c/d&#39;</span><span class="p">)</span>
 <span class="go">&#39;../../hello/there&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">relpath</span><span class="p">(</span><span class="s1">&#39;/a/b/c/d/e/hello/there&#39;</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="s1">&#39;/a/b/c/d&#39;</span><span class="p">)</span>
@@ -184,8 +184,8 @@ exception is raised.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="Ska.File.reversed_lines">
-<code class="sig-prename descclassname">Ska.File.</code><code class="sig-name descname">reversed_lines</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Ska/File.html#reversed_lines"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#Ska.File.reversed_lines" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ska_file.File.reversed_lines">
+<span class="sig-prename descclassname"><span class="pre">ska_file.File.</span></span><span class="sig-name descname"><span class="pre">reversed_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ska_file/File.html#reversed_lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ska_file.File.reversed_lines" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the lines of <code class="docutils literal notranslate"><span class="pre">filename</span></code> in reverse order.</p>
 <p>Adapted from: <a class="reference external" href="http://stackoverflow.com/questions/260273/most-efficient-way-to-search-the-last-x-lines-of-a-file-in-python/">http://stackoverflow.com/questions/260273/most-efficient-way-to-search-the-last-x-lines-of-a-file-in-python/</a></p>
 <dl class="field-list simple">
@@ -198,8 +198,8 @@ exception is raised.</p>
 </dl>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -209,8 +209,8 @@ exception is raised.</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
 <ul>
-<li><a class="reference internal" href="#">Ska.File</a><ul>
-<li><a class="reference internal" href="#module-Ska.File">API docs</a></li>
+<li><a class="reference internal" href="#">ska_file</a><ul>
+<li><a class="reference internal" href="#module-ska_file.File">API docs</a></li>
 </ul>
 </li>
 </ul>
@@ -239,7 +239,7 @@ exception is raised.</p>
     <a href="#">Back to Top</a></p>
   <p>
     &copy; Copyright 2015, Tom Aldcroft.<br/>
-    Created using <a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a> 3.1.2. &nbsp;
+    Created using <a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a> 4.2.0. &nbsp;
   </p>
 </footer>
   </body>
